@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Grocery List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <h1>🛒 Smart Grocery List</h1>
+
+    <div class="card budget-card">
+      <label for="budgetInput">Set Your Budget ($)</label>
+      <input type="number" id="budgetInput" placeholder="e.g. 100" />
+      <button onclick="setBudget()">Set Budget</button>
+      <div class="budget-stats">
+        <div class="bar-wrap">
+          <div class="bar" id="budgetBar"></div>
+        </div>
+        <div class="stats">
+          <p>💰 Budget: $<span id="budgetDisplay">0</span></p>
+          <p>💸 Spent: $<span id="totalSpent">0</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card item-picker">
+      <h2>Select Grocery Items</h2>
+      <div id="predefinedItems" class="item-grid"></div>
+    </div>
+
+    <div class="card list-card">
+      <h2>🧾 Your List</h2>
+      <ul id="itemList"></ul>
+    </div>
+
+    <div class="card api-card">
+      <h2>🌐 Search Price</h2>
+      <input type="text" id="searchInput" placeholder="Search product" />
+      <button onclick="searchPrice()">Search</button>
+      <div id="searchResults"></div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <!-- Overbudget Alert Modal -->
+    <div id="overBudgetModal" class="modal">
+      <div class="modal-content">
+        <h2>🚨 Over Budget!</h2>
+        <p>You’ve reached or exceeded your budget. Please review your list.</p>
+        <button onclick="closeModal()">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
